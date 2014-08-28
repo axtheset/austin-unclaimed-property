@@ -1,6 +1,4 @@
-## Getting Started with the Accela Construct API
 
-A demo application used to teach attendees at Accela Engage 2014 user conference how to begin using the [Accela Construct API](https://developer.accela.com/).
 
 ### Built with
 
