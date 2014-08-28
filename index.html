@@ -182,6 +182,10 @@
             }
 
             function showNextSteps(selectedName) {
+              // Reset text elements before appending.
+              $("#nextStepsHeading").text('');
+              $("#requestEmail").text('');
+
               $("#nextSteps").show();
               $("#nextStepsHeading").append("Next Steps - " + selectedName);
               $("#requestEmail").append("<a href='mailto:unclaimedproperty@austintexas.gov?Subject=Unclaimed Property Request for " + selectedName + "&Body=Owner Name: " + selectedName + "%0D%0ACurrent Address:%0D%0AAll Previous Addresses:%0D%0ASocial Security Number:%0D%0ADaytime Phone Number: ' target='_top'>Click here to send email now</a>");
