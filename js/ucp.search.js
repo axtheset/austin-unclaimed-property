@@ -188,7 +188,7 @@ ucp.search = (function () {
   showNextSteps = function ( selected_name ) {
     
     
-    jqueryMap.$results_label.text( 'Next Steps - ' + selected_name + ':' );
+    jqueryMap.$results_label.text( 'Next Steps for ' + selected_name + ':' );
     jqueryMap.$next_steps_email.html('<a href="mailto:unclaimedproperty@austintexas.gov?Subject=Unclaimed Property Request for ' 
       + selected_name 
       + '&Body=Owner Name: ' 
