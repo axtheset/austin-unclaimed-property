@@ -47,7 +47,7 @@ ucp.search = (function () {
         +     '<div class="modal-content">'
           +     '<div class="modal-header">'
             +     '<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>'
-            +     '<h4 class="modal-title" id="resultsLabel">Modal title</h4>'
+            +     '<h4 class="modal-title" id="resultsLabel"></h4>'
           +     '</div>'
           +     '<div class="modal-body" id="resultTable">'
           +     '</div>'
@@ -202,6 +202,7 @@ ucp.search = (function () {
   };
 
   showPreviousSearchResults = function () {
+    jqueryMap.$results_label.text('Click on your name below if found:');
     jqueryMap.$search_results.show();
     jqueryMap.$next_steps.hide();
     jqueryMap.$back_search_results.hide();
