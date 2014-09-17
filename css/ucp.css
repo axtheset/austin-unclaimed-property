@@ -1,0 +1,28 @@
+/*
+ * ucp.css
+ * UCP Styles
+*/
+
+body {
+  margin-top: 40px;
+}
+
+h3 {
+  margin-left: 50px;
+}
+.table {
+  margin-top: 10px;
+  margin-left: 50px;
+  margin-right: 50px;
+  width: 85%;
+}
+
+.input-group {
+  margin-bottom: 10px;
+}
+
+.modal-content {
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}

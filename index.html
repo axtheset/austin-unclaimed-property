@@ -1,209 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; 
+    charset=ISO-8859-1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 
-    <title>CivicData.com Test Application - Austin Unclaimed Property Check</title>
+  <title>CivicData.com Demo Application - Austin Unclaimed Property Check</title>
 
-    <!-- Bootstrap & Bootswatch CSS -->
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
-    <link href="http://netdna.bootstrapcdn.com/bootswatch/3.1.1/yeti/bootstrap.min.css" rel="stylesheet">
-    <style type="text/css">
-      body {
-        margin-top: 40px;
-      }
-      table {
-        margin-top: 10px;
-      }
+  <!-- third-party stylesheets -->
+  <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+  <link href="http://netdna.bootstrapcdn.com/bootswatch/3.1.1/yeti/bootstrap.min.css" rel="stylesheet">
 
-      .input-group {
-        margin-bottom: 10px;
-      }
-    </style>
+  <!-- our stylesheets -->
+  <link rel="stylesheet" href="css/ucp.css"       type="text/css"/>
+  <!-- third-party javascript -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
-  </head>
+  <!-- our javascript -->
+  <script src="js/ucp.js"       ></script>
+  <script src="js/ucp.shell.js" ></script>
+  <script src="js/ucp.search.js" ></script>
+  <script>
+    $(function () { ucp.initModule( $('#ucp') ); });
+  </script>
 
-  <body role="document">
+</head>
 
-    <!-- Fixed navbar -->
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="index.html">Unclaimed Property Check</a>
-        </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </div>
-
-    <div class="container theme-flatly" role="main">
-
-      <div class="page-header">
-          <h1>Unclaimed Property Check - Demo Application</h1>
-          <div class="well">
-            <p>This is a demo application using open data hosted at <a href="http://www.civicdata.com/en/home" target="_blank">CivicData.com</a>. The City of Austin supports a process by which citizens can retrieve their unclaimed property and valuables from various transactions creating a credit balance (<a href="https://www.ci.austin.tx.us/financeonline/finance/financial_docs.cfm?ws=3&pg=1" target="_blank">More Information</a>). The unclaimed property name list data used for this demo was downloaded from <a href="https://data.austintexas.gov/Financial/Unclaimed-Property/h3i4-5e5v" target="_blank">here</a> and uploaded to <a href="http://www.civicdata.com/en/dataset/unclaimed-property" target="_blank">CivicData.com</a> to demonstrate the usage of the CivicData.com API.</p>
-          </div>          
-      </div>
-
-      <div>
-        <p>Enter your name below to search for unclaimed property. Be sure to try different possible spellings of your name and if searching for a company enter the company name in the Last Name field.</p>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-4">
-        <div id="first-name-group" class="input-group">
-          <span class="input-group-addon">First Name</span>
-          <input type="text" class="form-control" id="inputFirstName">
-        </div>
-        <div id="last-name-group" class="input-group">
-          <span class="input-group-addon">Last Name</span>
-          <input type="text" class="form-control" id="inputLastName">
-        </div>
-        </div>
-      </div>
-    
-      <div>
-          <button type="button" value="RunCheck" class="btn btn-lg btn-primary">Search Unclaimed Property Name List</button>
-          <button type="button" value="" class="btn btn-lg btn-danger">Searching...</button>
-      </div>
-
-      <div>
-          <div class="col-lg-6" id="results"></div>
-          <div class="col-lg-6"></div>
-      </div>
-      
-      <div class="row">
-          <div class="col-lg-10" id="nextSteps">
-            <h3 id="nextStepsHeading"></h3>
-            <p>Contact the Treasurer, Unclaimed Property Section either by mail, by phone, or in person, with the following information: </p>
-            <ul>
-              <li>Owner name exactly as spelled in the listing.</li>
-              <li>Current addresses, in order to mail a response. (Please allow for 30 days.)</li>
-              <li>All previous addresses for the past five years, including Post Office Boxes.</li>
-              <li>Social Security Number of the person listed.</li>
-              <li>Daytime, 8:45 a.m. to 4:45 p.m. phone number.</li>
-            </ul>
-
-            <table class="table table-striped table-bordered table-hover">
-              <tr><th>Email</th><th>By US Mail</th><th>By Phone</th><th>In Person</th></tr>
-              <tr>
-                <td id="requestEmail"></td>  
-                <td>Treasurer<br/>City of Austin<br/>Unclaimed Property Section<br/>P. O. Box 2106<br/>Austin, Texas 78768</td>
-                <td>512-974-1384<br/>512-974-7890</td>
-                <td>Treasurer<br/>City of Austin<br/>Regular Business Days<br/>Hours (9:00 AM - 4:00 PM)<br/>700 Lavaca Street, Ste. 1510</td>
-            </table>
-
-            <p>If you have unclaimed property in addition follow steps 3 and 4 at this site: <a href="https://www.ci.austin.tx.us/financeonline/finance/financial_docs.cfm?ws=3&pg=1" target="_blank">City of Austin Treasury, Division of Financial & Administrative Services</a>.</p>
-
-            <p>With accurate information and no complications, your claim may be processed and a check mailed in 60 to 90 days.</p>
-          </div> 
-
-
-      </div>
-
-      </div> <!-- /container -->
-
-
-    <!--  Required JavaScript libraries -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-        <script type="text/javascript">
-          $(document).ready(function() {
-
-            $(".btn-danger").hide();
-            $("#nextSteps").hide();
-
-            var resourceId = "efab801d-8815-46af-8961-aec57ab8d83b";
-            var baseURI = "http://www.civicdata.com/api/action/datastore_search_sql?sql=";
-
-            // Function to build query based on user input
-            function getUnclaimedQuery(lName, fName) {
-              var sqlQuery = "select * from \"resource_id\" where upper(\"Last\") like '" + lName.toUpperCase() + "%'";
-
-              if (fName != null && fName != "" && fName != undefined) {
-                sqlQuery += " and upper(\"First\") like '%" + fName.toUpperCase + "%'";          
-              }
-
-              sqlQuery += " order by \"Last\", \"First\", \"M\"";
-
-              return baseURI + encodeURIComponent(sqlQuery.replace("resource_id",resourceId));
-            }
-
-            // Function to get matching names from dataset
-            
-            function getUnclaimedMatches(lName, fName) {
-              if (lName == null || lName == "" || lName == undefined) {
-                $("#last-name-group").attr('class', 'input-group has-error');
-                $("#inputLastName").attr('placeholder', 'Last name is required for lookup');
-                //$('#results').append('Nothing found');
-                return false;
-              }
-              $("#last-name-group").attr('class', 'input-group');
-              $.ajax({
-                url: getUnclaimedQuery(lName, fName),
-                beforeSend: function(xhr) {
-                  $(".btn-danger").show();
-                },
-                complete: function(xhr) {
-                  $(".btn-danger").hide();
-                  console.log(xhr.responseJSON);
-                  var records = xhr.responseJSON.result.records;
-                  if (records.length > 0) {
-                    $("#results").append("<h4>Click on your name below if found:</h4>");
-                    $("#results").append("<table class=\"table table-striped table-bordered table-hover\">");
-                    $("#results table").append("<tr><th>Name</th></tr>");
-                    for(var i=0; i<records.length; i++) {
-                      console.log(records[i]);
-                      $("#results table").append("<tr><td><a class=\"details\" href=\"#\">" +  records[i].First + " " + records[i].M + " " + records[i].Last + "</a></td></tr>")
-                    }
-                    $("#results table").append("</table>");                    
-                  } else {
-                    $("#results").append("<h2>No records found for name:<br/>" + $('#inputFirstName').val() + " " + $('#inputLastName').val() + "</h2>");
-                  }
-
-
-                }
-              });
-            }
-
-            function showNextSteps(selectedName) {
-              // Reset text elements before appending.
-              $("#nextStepsHeading").text('');
-              $("#requestEmail").text('');
-
-              $("#nextSteps").show();
-              $("#nextStepsHeading").append("Next Steps - " + selectedName);
-              $("#requestEmail").append("<a href='mailto:unclaimedproperty@austintexas.gov?Subject=Unclaimed Property Request for " + selectedName + "&Body=Owner Name: " + selectedName + "%0D%0ACurrent Address:%0D%0AAll Previous Addresses:%0D%0ASocial Security Number:%0D%0ADaytime Phone Number: ' target='_top'>Click here to send email now</a>");
-            }
-
-            // Handlers for click events on specific elements.
-            $(".btn").click(function() {
-              $("#results").empty();
-              $("#nextSteps").hide();
-              getUnclaimedMatches($('#inputLastName').val(),$('#inputFirstName').val());
-            });
-
-            $("#results").on("click", ".details", function() {
-              $("#results").empty();
-              showNextSteps($(this).text());
-            });
-
-          });
-        </script>
-  </body>
+</head>
+<body>
+<div id="ucp"></div>
+</body>
 </html>
