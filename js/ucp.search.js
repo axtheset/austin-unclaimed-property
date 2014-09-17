@@ -176,6 +176,7 @@ ucp.search = (function () {
       modal_content += '</table>';
     }
     else {
+      jqueryMap.$results_label.text('Search Results:');
       modal_content = '<h3>No records found for name:<br/>' + jqueryMap.$first_name.val() + ' ' + jqueryMap.$last_name.val() + '</h3>'
     }
 
